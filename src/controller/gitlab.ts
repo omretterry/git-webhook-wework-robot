@@ -114,7 +114,8 @@ const actionWords = {
     "close": "关闭",
     "reopen": "重新发起",
     "update": "更新",
-    "merge": "合并"
+    "merge": "合并",
+    "approved": "审核通过",
 };
 export default class GitWebhookController {
     public static async getWebhook(ctx: BaseContext) {
