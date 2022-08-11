@@ -204,7 +204,7 @@ export default class GitWebhookController {
                         标题：${attr.title}
                         源分支：${attr.source_branch}
                         目标分支：${attr.target_branch}
-                        合并人员：${assignees.map(assignee => `@${assignee.name}`).join(",")}
+                        合并人员：${assignees.map(assignee => `${assignee.name}`).join(",")}
                         [查看MR详情](${attr.url})`;
         await robot.sendMdMsg(mdMsg, undefined, {
             mentioned_list: assignees.map(assignee => assignee.name)
