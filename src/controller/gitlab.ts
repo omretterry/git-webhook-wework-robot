@@ -64,6 +64,7 @@ interface PushBody {
 interface MRBody {
     object_kind: string;
     user: User;
+    assignees: any;
     object_attributes: {
         // 这里并不包括所有的object_attribute，因为实在太多了暂时只列出我们需要的几个属性
         id: number,
@@ -77,7 +78,6 @@ interface MRBody {
         url: string,
         source: Source,
         action: string, // action 可能是open/update/close/reopen
-        assignees: any
     };
 }
 
@@ -197,7 +197,7 @@ export default class GitWebhookController {
             robotid || config.chatid
         );
         log.info(body);
-        const {user, object_attributes} = body;
+        const {user, object_attributes, assignees} = body;
         const attr = object_attributes;
         const {assignees} = attr;
         console.log(assignees);
