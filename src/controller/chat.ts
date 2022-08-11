@@ -102,7 +102,8 @@ export default class ChatRobot {
             "msgtype": "markdown",
             "chatid": chatid,
             "markdown": {
-                "content": content
+                "content": content,
+                ...options
             }
         };
         return await this.sendHttpRequest(markdownMsgInfo);
