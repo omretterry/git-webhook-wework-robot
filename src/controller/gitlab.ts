@@ -199,8 +199,7 @@ export default class GitWebhookController {
         log.info(body);
         const {user, object_attributes, assignees} = body;
         const attr = object_attributes;
-        const {assignees} = attr;
-        console.log(assignees);
+        log.info(assignees);
         const mdMsg = `${user.name}在 [${attr.source.name}](${attr.source.web_url}) ${actionWords[attr.action]}了一个MR
                         标题：${attr.title}
                         源分支：${attr.source_branch}
