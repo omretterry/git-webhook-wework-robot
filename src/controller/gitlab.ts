@@ -76,7 +76,8 @@ interface MRBody {
         description: string,
         url: string,
         source: Source,
-        action: string // action 可能是open/update/close/reopen
+        action: string, // action 可能是open/update/close/reopen
+        assignees: any
     };
 }
 
@@ -198,6 +199,8 @@ export default class GitWebhookController {
         log.info(body);
         const {user, object_attributes} = body;
         const attr = object_attributes;
+        const {assignees} = attr;
+        console.log(assignees);
         const mdMsg = `${user.name}在 [${attr.source.name}](${attr.source.web_url}) ${actionWords[attr.action]}了一个MR
                         标题：${attr.title}
                         源分支：${attr.source_branch}
